@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treinamentos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <script src="../vr/utils.js"></script>
+
+    <div class="page">
+      <div class="container text-center">
+        <div class="row mb-4">
+          <div class="col">
+            <p class="display-6 text-end" style="color: white">
+              Aplicações de Sala de Aula em XR
+            </p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-3">
+            <a
+              onclick="redirectTo('../vr/indexvr.html', {type: 'elevator'})"
+              class="cenario"
+              style="background-image: url('../assets/logo1.png')"
+            >
+            </a>
+            <p class="lead text-center mt-4" style="color: white">
+              Quadro-Branco
+            </p>
+          </div>
+          <div class="col-md-3">
+            <a
+              class="cenario locked"
+              style="background-image: url('../assets/logo1.png')"
+            >
+            </a>
+            <p class="lead text-center mt-4" style="color: white">
+              Princípios de Programação
+            </p>
+          </div>
+          <div class="col-md-3">
+            <a
+              class="cenario locked"
+              style="background-image: url('../assets/logo1.png')"
+            >
+            </a>
+            <p class="lead text-center mt-4" style="color: white">
+              Automação Industrial
+            </p>
+          </div>
+          <div class="col-md-3">
+            <a
+              class="cenario locked"
+              style="background-image: url('../assets/logo1.png')"
+            >
+            </a>
+            <p class="lead text-center mt-4" style="color: white">
+              Robótica
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script></script>
+
+    <style>
+      .page {
+        background-color: #3298b3;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 8rem;
+      }
+
+      .cenario {
+        width: 100%;
+        height: 40vh;
+        border-radius: 10px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-color: #f0f0f0;
+        transition: transform 0.3s, filter 0.3s;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .cenario:hover {
+        transform: scale(1.05);
+        filter: brightness(1.2);
+      }
+
+      .locked {
+        filter: grayscale(1);
+        cursor: not-allowed;
+      }
+      .locked:hover {
+        filter: grayscale(1);
+      }
+      .container {
+        max-width: 100%;
+      }
+    </style>
+  </body>
+</html>
