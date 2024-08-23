@@ -30,21 +30,21 @@ document.addEventListener("DOMContentLoaded", function () {
   leftController.addEventListener("triggerup", onSelect1End);
 });
 
-
 function onSelect1Start() {
   if (!currentElement) return;
+
   if (currentElement.id === "whiteboard") {
     hitted = true;
     return;
   }
-  if(currentElement.id === "eraser") {
+
+  if (currentElement.id === "eraser") {
     currentColor = "white";
-  }
-  else if (currentElement.getAttribute("color")) {
+  } else if (currentElement.getAttribute("color")) {
     currentColor = currentElement.getAttribute("color");
   }
-  raycasterLeft.setAttribute('raycaster', 'lineColor', currentColor)
-  raycasterRight.setAttribute('raycaster', 'lineColor', currentColor)
+  raycasterLeft.setAttribute("raycaster", "lineColor", currentColor);
+  raycasterRight.setAttribute("raycaster", "lineColor", currentColor);
 }
 
 function onSelect1End() {

@@ -40,9 +40,7 @@ AFRAME.registerComponent("clicable", {
     );
   },
   tick: function (evt) {
-    if (!hitted) return;
-    if (!this.el.id === "whiteboard") return;
-    if (!raycasterObj) return;
+    if (!hitted || !this.el.id === "whiteboard" || !raycasterObj) return;
 
     this.draw();
   },
