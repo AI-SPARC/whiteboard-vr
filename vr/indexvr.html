@@ -85,12 +85,12 @@
           thumbstick-logging-left
         >
           <a-entity
+            id="raycasterLeft"
             cursor="fuse: true; fuseTimeout: 500"
             position="0 0 -.1"
             geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
             material="color: gray; shader: flat"
-            raycaster="objects: .clicable; showLine: true; far: 2"
-            line="color: red; opacity: 0.5;"
+            raycaster="objects: .clicable; showLine: true; far: 2; lineColor: red; lineOpacity: 0.5"
           >
           </a-entity>
         </a-entity>
@@ -102,12 +102,12 @@
           thumbstick-logging-right
         >
           <a-entity
+            id="raycasterRight"
             cursor="fuse: true; fuseTimeout: 500"
             position="0 0 -.1"
             geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
             material="color: gray; shader: flat"
             raycaster="objects: .clicable; showLine: true; far: 2; lineColor: red; lineOpacity: 0.5"
-            line="color: red; opacity: 0.5;"
           >
           </a-entity>
         </a-entity>
@@ -115,9 +115,8 @@
 
       <!-- Lights -->
       <a-entity id="lights">
-        
         <a-entity light="type: ambient; color: #FFF"></a-entity>
-        
+
         <a-entity
           light="type: directional; color: #FFF; intensity: 0.4"
           position="7.9 2.8 0.0"
@@ -148,17 +147,117 @@
         ></a-entity>
       </a-entity>
 
-      <a-box id="whiteboard" color="white" depth="1" height="8" width="15" position="2 4.47967 0.25" geometry="depth: 0.3" clicable></a-box> 
-      <a-box depth="1" height="9" width="19" position="2 4.50462 0" material="color: #342313" geometry="depth: 0.3"></a-box>
-      
-      <a-box color="green" height="1" width="1" position="10.5 2 0.25" geometry="depth: 0.2" clicable class="changeColor"></a-box>
-      <a-box color="green" height="1" width="1" position="-6.5 2 0.25" geometry="depth: 0.2" clicable class="changeColor"></a-box>
-      <a-box color="black" height="1" width="1" position="10.5 3.5 0.25" geometry="depth: 0.2" clicable class="changeColor"></a-box>
-      <a-box color="black" height="1" width="1" position="-6.5 3.5 0.25" geometry="depth: 0.2" clicable class="changeColor"></a-box>
-      <a-box color="red" height="1" width="1" position="10.5 5 0.25" geometry="depth: 0.2" clicable class="changeColor"></a-box>
-      <a-box color="red" height="1" width="1" position="-6.5 5 0.25" geometry="depth: 0.2" clicable class="changeColor"></a-box>
-      <a-box color="blue" height="1" width="1" position="10.5 6.5 0.25" geometry="depth: 0.2" clicable class="changeColor"></a-box>
-      <a-box color="blue" height="1" width="1" position="-6.5 6.5 0.25" geometry="depth: 0.2" clicable class="changeColor"></a-box>
+      <a-box
+        id="whiteboard"
+        color="white"
+        depth="1"
+        height="8"
+        width="15"
+        position="2 4.47967 0.25"
+        geometry="depth: 0.3"
+        clicable
+      ></a-box>
+      <a-box
+        depth="1"
+        height="9"
+        width="19"
+        position="2 4.50462 0"
+        material="color: #342313"
+        geometry="depth: 0.3"
+      ></a-box>
+
+      <a-box
+        color="green"
+        height="1"
+        width="1"
+        position="10.5 2 0.25"
+        geometry="depth: 0.2"
+        clicable
+        class="changeColor"
+      ></a-box>
+      <a-box
+        color="green"
+        height="1"
+        width="1"
+        position="-6.5 2 0.25"
+        geometry="depth: 0.2"
+        clicable
+        class="changeColor"
+      ></a-box>
+      <a-box
+        color="black"
+        height="1"
+        width="1"
+        position="10.5 3.5 0.25"
+        geometry="depth: 0.2"
+        clicable
+        class="changeColor"
+      ></a-box>
+      <a-box
+        color="black"
+        height="1"
+        width="1"
+        position="-6.5 3.5 0.25"
+        geometry="depth: 0.2"
+        clicable
+        class="changeColor"
+      ></a-box>
+      <a-box
+        color="red"
+        height="1"
+        width="1"
+        position="10.5 5 0.25"
+        geometry="depth: 0.2"
+        clicable
+        class="changeColor"
+      ></a-box>
+      <a-box
+        color="red"
+        height="1"
+        width="1"
+        position="-6.5 5 0.25"
+        geometry="depth: 0.2"
+        clicable
+        class="changeColor"
+      ></a-box>
+      <a-box
+        color="blue"
+        height="1"
+        width="1"
+        position="10.5 6.5 0.25"
+        geometry="depth: 0.2"
+        clicable
+        class="changeColor"
+      ></a-box>
+      <a-box
+        color="blue"
+        height="1"
+        width="1"
+        position="-6.5 6.5 0.25"
+        geometry="depth: 0.2"
+        clicable
+        class="changeColor"
+      ></a-box>
+      <a-box
+        id="eraser"
+        color="gray"
+        height="0.4"
+        width="1"
+        position="-6.5 8 0.25"
+        geometry="depth: 0.2"
+        clicable
+        class="changeColor"
+      ></a-box>
+      <a-box
+        id="eraser"
+        color="gray"
+        height="0.4"
+        width="1"
+        position="10.5 8 0.25"
+        geometry="depth: 0.2"
+        clicable
+        class="changeColor"
+      ></a-box>
     </a-scene>
   </body>
 </html>

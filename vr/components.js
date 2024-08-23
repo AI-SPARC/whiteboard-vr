@@ -39,39 +39,32 @@ AFRAME.registerComponent("clicable", {
       this.onRaycastClear
     );
   },
-
-  update: function () {
-    this.draw();
-  },
   tick: function (evt) {
-    console.log(hitted);
+    if (!hitted) return;
+    if (!this.el.id === "whiteboard") return;
+    if (!raycasterObj) return;
+
     this.draw();
   },
 
   draw: function () {
-    if (hitted && this.el.id === "whiteboard") {
-      if (!raycasterObj) {
-        return;
-      }
-
-      let intersection =
-        raycasterObj.components.raycaster.getIntersection(currentElement);
-      if (!intersection) {
-        return;
-      }
-
-      const geometry = new THREE.SphereBufferGeometry(0.06);
-      const material = new THREE.MeshBasicMaterial({
-        color: currentColor || "black",
-        opacity: 1,
-        side: THREE.DoubleSide,
-      });
-      const mesh = new THREE.Mesh(geometry, material);
-
-      mesh.position.set(intersection.point.x, intersection.point.y, 0.5);
-      console.log(intersection.point)
-
-      scene.object3D.add(mesh);
+    let intersection =
+      raycasterObj.components.raycaster.getIntersection(currentElement);
+    if (!intersection) {
+      return;
     }
+
+    const geometry = new THREE.SphereBufferGeometry(0.06);
+    const material = new THREE.MeshBasicMaterial({
+      color: currentColor || "black",
+      opacity: 1,
+      side: THREE.DoubleSide,
+    });
+    const mesh = new THREE.Mesh(geometry, material);
+
+    mesh.position.set(intersection.point.x, intersection.point.y, 0.5);
+    console.log(intersection.point);
+
+    scene.object3D.add(mesh);
   },
 });
